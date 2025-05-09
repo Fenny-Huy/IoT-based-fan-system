@@ -1,0 +1,30 @@
+CREATE TABLE mode_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    mode VARCHAR(10)
+);
+
+CREATE TABLE sensor_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    temperature FLOAT,
+    humidity FLOAT,
+    light INT
+);
+
+CREATE TABLE fan_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    source VARCHAR(20), -- "remote" or "potentiometer"
+    speed INT -- 0
+);
+
+
+
+CREATE TABLE settings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    temp_high_threshold FLOAT DEFAULT 30.0,
+    temp_low_threshold FLOAT DEFAULT 15.0,
+    light_threshold INT DEFAULT 30,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
